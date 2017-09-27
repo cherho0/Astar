@@ -9,6 +9,8 @@ namespace AStarStudy
     {
         static void Main(string[] args)
         {
+            #region Astar
+
             Console.WriteLine("Hello AStar!");
             var obses = new List<MapPoint>();
             obses.Add(new MapPoint(3, 0));
@@ -25,7 +27,18 @@ namespace AStarStudy
             obses.Add(new MapPoint(5, 0));
             obses.Add(new MapPoint(5, 3));
 
-            obses.Add(new MapPoint(6, 2));
+            for (int i = 2; i < 30; i++)
+            {
+                obses.Add(new MapPoint(6, i));
+
+            }
+
+            for (int i = 0; i < 29; i++)
+            {
+                obses.Add(new MapPoint(15, i));
+            }
+
+
             FindPath f = new FindPath();
 
             var start = new MapPoint(2, 2);
@@ -59,13 +72,13 @@ namespace AStarStudy
                     }
                     //是不是走过的
 
-                    if (map.CloseList.Any(p=>p.X == i && p.Y == j))
+                    if (map.CloseList.Any(p => p.X == i && p.Y == j))
                     {
                         str = got;
                     }
 
                     //是不是路径
-                    if (paths.Any(p=>p.X == i && p.Y == j))
+                    if (paths.Any(p => p.X == i && p.Y == j))
                     {
                         str = route;
                     }
@@ -81,10 +94,24 @@ namespace AStarStudy
                     }
 
                     Console.Write(str);
-                    
+
                 }
                 Console.WriteLine();
             }
+            #endregion
+
+            #region Tree
+
+            var root = new TreeNode("A", null);
+            var B = new TreeNode("B", root);
+            var C = new TreeNode("C", root);
+            var D = new TreeNode("D", B);
+            var E = new TreeNode("E", B);
+            var F = new TreeNode("F", D);
+            var G = new TreeNode("G", E);
+            var H = new TreeNode("H", G);
+            var nodeend =  FindNode.Find(root, H);
+            #endregion
             Console.ReadKey();
         }
     }
