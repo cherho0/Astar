@@ -9,6 +9,21 @@ namespace AStarStudy
     {
         static void Main(string[] args)
         {
+            #region Tree
+            Console.WriteLine("Hello Tree!");
+            var root = new TreeNode("A", null);
+            var B = new TreeNode("B", root);
+            var C = new TreeNode("C", root);
+            var D = new TreeNode("D", B);
+            var E = new TreeNode("E", B);
+            var F = new TreeNode("F", D);
+            var G = new TreeNode("G", E);
+            var H = new TreeNode("H", G);
+            var nodeend = FindNode.Find(root, H);
+            #endregion
+
+            Console.ReadKey();
+
             #region Astar
 
             Console.WriteLine("Hello AStar!");
@@ -100,18 +115,7 @@ namespace AStarStudy
             }
             #endregion
 
-            #region Tree
-
-            var root = new TreeNode("A", null);
-            var B = new TreeNode("B", root);
-            var C = new TreeNode("C", root);
-            var D = new TreeNode("D", B);
-            var E = new TreeNode("E", B);
-            var F = new TreeNode("F", D);
-            var G = new TreeNode("G", E);
-            var H = new TreeNode("H", G);
-            var nodeend =  FindNode.Find(root, H);
-            #endregion
+            
             Console.ReadKey();
         }
     }
