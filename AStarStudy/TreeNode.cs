@@ -27,7 +27,7 @@ namespace AStarStudy
 
         public override string ToString()
         {
-            return $"name:{Name},parent:{Parent}";
+            return $"name:{Name},parent:{Parent.Name}";
         }
     }
 }
